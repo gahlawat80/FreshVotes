@@ -1,7 +1,7 @@
 package com.freshvotes.springboot.app.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,7 +13,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping("/dashboard")
+	@PostMapping("/dashboard")
 	public String dashboard(){
 		return "dashboard";
 	}
