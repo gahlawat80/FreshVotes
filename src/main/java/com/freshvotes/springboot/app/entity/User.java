@@ -1,6 +1,5 @@
 package com.freshvotes.springboot.app.entity;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,22 +14,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Users")
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
 	private String username;
 	private String password;
 	private String name;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
 	private Set<Authority> authorities;
-		
-	public Set<Authority> getAuthorities() {
-		return this.authorities;
-	}
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
-	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +49,19 @@ public class User {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Set<Authority> getAuthorities() {
+		return this.authorities;
+	}
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+	
+	
+	
+	public User() {
+	
 	}
 	@Override
 	public String toString() {

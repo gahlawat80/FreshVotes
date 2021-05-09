@@ -1,16 +1,21 @@
 package com.freshvotes.springboot.app.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.ui.ModelMap;
 
 import com.freshvotes.springboot.app.entity.User;
+import com.freshvotes.springboot.app.services.UserService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET )
 	public String home(){
@@ -35,7 +40,7 @@ public class HomeController {
 	
 	@PostMapping("/register")
 	public String createAccount(User user){
-		System.out.println(user);
+		userService.save(user);
 		return "redirect:/register";
 	}
 	
