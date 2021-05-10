@@ -3,6 +3,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Fresh Votes | LOGIN</title>
+
+<!-- jQuery CDN -->
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous">
+</script>
+<script>
+	$(function(){
+		$("#registerAccount").click(function(){
+			window.location.href = "/register";
+		});
+	});
+</script>
 </head>
 <body>
 	<form action="" method="post">
@@ -34,6 +48,7 @@
         </p>
         <div>
             <button type="submit" class="btn">Log in</button>
+            <button type="button" class="btn" id="registerAccount">Register Now</button>
         </div>
  </form>
 </body>

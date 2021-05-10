@@ -15,11 +15,20 @@ public class Authority implements GrantedAuthority {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String authority;
+	
+	private String authority;	
 	
 	@ManyToOne
 	private User user;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	@Override
 	public String getAuthority() {		
 		return this.authority;
@@ -29,20 +38,22 @@ public class Authority implements GrantedAuthority {
 		this.authority = authority;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	
+	public Authority() {
+
+	}
+
+	@Override
+	public String toString() {
+		return "Authority [id=" + id + ", authority=" + authority + ", user=" + user + "]";
 	}
 	
 
