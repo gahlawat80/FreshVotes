@@ -18,20 +18,18 @@ public class UserService {
 	private PasswordEncoder passwordEncoder;
 	
 	public User save(User user){
-		System.out.println(user);
-		String encodedPassword=passwordEncoder.encode(user.getPassword());
+		User localUser = user;
+		String encodedPassword=passwordEncoder.encode(localUser.getPassword());
 		user.setPassword(encodedPassword);
 		
-		Authority authority = new Authority();
-		authority.setAuthority("ROLE_USER");
-		authority.setUser(user);
+		Authority auth = new Authority();
+		auth.setAuthority("ROLE_USER");
+		auth.setUser(localUser);
+		//System.out.println(authority);
 		
-		user.getAuthorities().add(authority);
-		
-		System.out.println(user);
-		System.out.println(authority);
-		
-		return userRepo.save(user);
+		localUser.getAuthorities().add(auth);
+				
+		return userRepo.save(localUser);
 	}
 	
 }

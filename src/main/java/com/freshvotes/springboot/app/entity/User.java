@@ -1,5 +1,6 @@
 package com.freshvotes.springboot.app.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -24,7 +25,7 @@ public class User {
 	private String name;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
-	private Set<Authority> authorities;
+	private Set<Authority> authorities=new HashSet<>();
 	
 	public Long getId() {
 		return id;
@@ -58,13 +59,14 @@ public class User {
 		this.authorities = authorities;
 	}
 	
-	
-	
+		
 	public User() {
 	
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
+				+ "]";
 	}
+
 }

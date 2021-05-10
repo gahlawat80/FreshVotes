@@ -40,7 +40,9 @@ public class HomeController {
 	
 	@PostMapping("/register")
 	public String createAccount(User user){
-		userService.save(user);
+		System.out.println("Input user : -"+user);
+		User savedUser = userService.save(user);
+		System.out.println("Saved user : -"+savedUser);
 		return "redirect:/register";
 	}
 	
