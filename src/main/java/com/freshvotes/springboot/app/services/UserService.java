@@ -1,5 +1,7 @@
 package com.freshvotes.springboot.app.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,11 @@ public class UserService {
 		localUser.getAuthorities().add(auth);
 				
 		return userRepo.save(localUser);
+	}
+	
+	public User findByUsername(String username){
+		User dbUser = userRepo.findByUsername(username);
+		return dbUser;
 	}
 	
 }
