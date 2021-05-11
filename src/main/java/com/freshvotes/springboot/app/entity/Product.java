@@ -30,6 +30,12 @@ public class Product {
 	
 	private Boolean published;
 	
+	public Boolean getPublished() {
+		return published;
+	}
+	public void setPublished(Boolean published) {
+		this.published = published;
+	}
 	public Long getId() {
 		return id;
 	}
