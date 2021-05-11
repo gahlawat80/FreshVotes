@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>FreshVotes | HOME</title>
-</head>
-<body>
-	<h1>Welcome to Fresh Votes app</h1>
-	<a href="/login">Login</a>
-</body>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>FreshVotes | HOME</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-8">
+					<h1>Welcome to Fresh Votes app</h1>
+				</div>
+				<div class="col-4">
+					<button type="button" class="btn btn-primary pr-5 pl-5 float-right" id="login">Login</button>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			const loginBtn = document.querySelector('#login');
+			console.log(loginBtn);
+			loginBtn.addEventListener('click', function(){
+				window.location.href = "/login";
+			});
+		</script>
+	</body>
 </html>

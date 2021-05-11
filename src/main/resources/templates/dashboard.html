@@ -20,27 +20,29 @@
 				</form>
 			</div>
 		</div>
-		<div th:if="${products !=null}">
-			<div class="row">
-				<div class="col">
-					<h2>Products</h2>
+		<div class="jumbotron mt-1">
+			<div th:if="${products !=null}">
+				<div class="row">
+					<div class="col">
+						<h2 style="margin-top:-1.5rem;">Products</h2>
+					</div>
+				</div>
+				<div class="row" th:each="product : ${products}">
+					<div class="col">
+						<a th:href="@{/products/{productId}(productId=${product.id})}" th:text="${product.name}"></a>
+					</div>				
 				</div>
 			</div>
-			<div class="row" th:each="product : ${products}">
+			<div class="row">
 				<div class="col">
-					<a th:href="@{/products/{productId}(productId=${product.id})}" th:text="${product.name}"></a>
-				</div>				
+					<form action="/product" method="post">
+						<input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>
+						<button type="submit" id="createProduct" class="btn btn-primary btn-lg">Add Product</button>
+					</form>
+				</div>
 			</div>
+					
 		</div>
-		<div class="row">
-			<div class="col">
-				<form action="/product" method="post">
-					<input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>
-					<button type="submit" id="createProduct" class="btn btn-primary btn-lg">Add Product</button>
-				</form>
-			</div>
-		</div>
-				
 	
 	</div>
 </body>
