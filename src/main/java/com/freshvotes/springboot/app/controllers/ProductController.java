@@ -49,6 +49,13 @@ public class ProductController {
 		return "product";
 	}
 	
+	@PostMapping("/products/{productId}")
+	public String saveProduct(@PathVariable Long productId, Product product){
+		product = productRepo.save(product);
+		System.out.println(product);
+		return "redirect:/products/"+product.getId();
+	}
+	
 	@PostMapping("/product")
 	public String product(){
 		//To get hold of current logged in user
