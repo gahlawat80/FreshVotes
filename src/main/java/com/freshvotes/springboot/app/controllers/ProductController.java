@@ -1,6 +1,7 @@
 package com.freshvotes.springboot.app.controllers;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,11 +31,6 @@ public class ProductController {
 	
 	@Autowired
 	private UserService userService;
-	
-	@GetMapping("/products")
-	public String product(ModelMap model){
-		return "product";
-	}
 	
 	@GetMapping("/products/{productId}")
 	public String product(@PathVariable Long productId, ModelMap map, HttpServletResponse http) throws IOException{
